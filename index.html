@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Visual G</title>
+    <link rel="stylesheet" href="src/css/style.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="stylesheet" href="src/css/">
+</head>
+
+<body>
+    <div id="header">
+        <h1>Visual g Online</h1>
+        <button id="toggle-theme" onclick="alterarTema()">🌙</button>
+    </div>
+    <div id="content">
+        <div id="editor-area">
+            <textarea id="codigo" placeholder="Digite seu código em Portugol aqui..."></textarea>
+            <button onclick="interpretar()">Executar Código</button>
+            <div id="resultado"></div>
+        </div>
+        <div id="memoria-area">
+            <h2>Áreas de Memória</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Valor</th>
+                        <th>Tipo</th>
+                        <th>Escopo</th>
+                    </tr>
+                </thead>
+                <tbody id="memoria"></tbody>
+            </table>
+        </div>
+    </div>
+    <script src="src/js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,201 @@
+@font-face {
+    font-family: mine;
+    src: url(/src/fonts/Minecrafter.Reg.ttf);
+}
+
+:root {
+    --bg-color-dark: #141414;
+    --text-color-dark: aliceblue;
+    --box-color-dark: #242424;
+    --shadow-color-dark: white;
+
+    --bg-color-light: #f5f5f5;
+    --text-color-light: #222222;
+    --box-color-light: #ffffff;
+    --shadow-color-light: #bbbbbb;
+
+    --bg-color: var(--bg-color-dark);
+    --text-color: var(--text-color-dark);
+    --box-color: var(--box-color-dark);
+    --shadow-color: var(--shadow-color-dark);
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    display: flex;
+    flex-direction: column;
+}
+
+#header {
+    width: 100%; /* Garante que o cabeçalho ocupe exatamente o tamanho da tela */
+    max-width: 100%; /* Evita que ultrapasse os limites */
+    padding: 15px 20px;
+    background-color: var(--box-color);
+    box-shadow: 0 0 10px var(--shadow-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box; /* Inclui padding e border no cálculo da largura total */
+    overflow: hidden; /* Evita que o conteúdo estoure */
+}
+
+#header h1 {
+    letter-spacing: 2px;
+    font-family: mine;
+    margin: 0 0 0 20px;
+    font-size: 24px;
+    font-weight: 100;
+    white-space: nowrap; /* Impede que o título quebre para outra linha */
+    overflow: hidden; /* Garante que não ultrapasse os limites */
+    text-overflow: ellipsis; /* Adiciona "..." se o texto for muito longo */
+}
+
+#toggle-theme {
+    padding: 10px;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    background-color: var(--box-color);
+    color: var(--text-color);
+    cursor: pointer;
+    box-shadow: 0 0 5px var(--shadow-color);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#toggle-theme:hover {
+    opacity: 0.8;
+}
+/* Restante do estilo da página */
+#content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+    gap: 20px;
+}
+
+#editor-area {
+    width: 65%;
+}
+
+textarea, button {
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px var(--shadow-color);
+    display: block;
+    margin: 10px 0;
+    width: 95%;
+    color: var(--text-color);
+    background-color: var(--box-color);
+    border: none;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+textarea {
+    height: 200px;
+}
+
+#memoria-area {
+    width: 30%;
+    background-color: var(--box-color);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px var(--shadow-color);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    color: var(--text-color);
+}
+
+th, td {
+    border: 1px solid var(--shadow-color);
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: var(--bg-color);
+}
+
+td {
+    background-color: var(--box-color);
+}
+
+/* Responsividade para dispositivos móveis */
+@media (max-width: 768px) {
+    #header {
+        flex-direction: column; /* Empilha o conteúdo no cabeçalho */
+        align-items: flex-start; /* Alinha itens à esquerda */
+        padding: 10px;
+    }
+
+    #header h1 {
+        font-size: 20px;
+        margin-bottom: 10px; /* Dá espaço abaixo do título */
+    }
+
+    #toggle-theme {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+    }
+
+    #content {
+        flex-direction: column; /* Empilha editor e tabela de memória */
+        gap: 10px; /* Reduz o espaçamento entre os elementos */
+        padding: 10px;
+    }
+
+    #editor-area, #memoria-area {
+        width: 100%; /* Ocupa toda a largura no celular */
+    }
+
+    textarea, button {
+        width: 100%; /* Ajusta para ocupar toda a largura disponível */
+    }
+
+    #memoria-area {
+        padding: 15px; /* Ajusta o padding para caber melhor em telas menores */
+    }
+
+    table th, table td {
+        font-size: 12px; /* Diminui o tamanho da fonte na tabela */
+        padding: 8px; /* Reduz o padding das células */
+    }
+}
+
+/* Responsividade para dispositivos muito pequenos (até 480px) */
+@media (max-width: 480px) {
+    #header h1 {
+        font-size: 18px; /* Ajusta ainda mais o tamanho da fonte */
+    }
+
+    #toggle-theme {
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+    }
+
+    textarea {
+        height: 150px; /* Reduz a altura da área de texto */
+    }
+
+    table th, table td {
+        font-size: 10px; /* Fonte menor para dispositivos muito pequenos */
+        padding: 5px; /* Padding ainda menor para caber bem */
+    }
+}
